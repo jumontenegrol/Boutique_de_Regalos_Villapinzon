@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@theme{--color-wine:#8E1433;--color-wine-dark:#651026;--color-blush:#F5DCD8;--color-cream:#FFF8F2;--color-ink:#3A1F26;--color-muted:#7B5A61;--font-display:Fraunces,Georgia,serif;--font-sans:Nunito,system-ui,sans-serif}
+html{font-size:18px;scroll-behavior:smooth;scroll-padding-top:5rem}
+body{background:var(--color-cream);color:var(--color-ink);font-family:var(--font-sans)}
+:focus-visible{outline:3px solid #D62976;outline-offset:2px}
+.btn{display:inline-flex;min-height:3rem;align-items:center;justify-content:center;gap:.5rem;border:2px solid var(--color-wine);border-radius:999px;background:var(--color-wine);color:#fff;padding:.4rem 1.5rem;font-weight:800;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--color-wine-dark)}.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn-alt{background:#fff;color:var(--color-wine)}.btn-alt:hover{background:var(--color-blush);color:var(--color-wine-dark)}
+.input{display:block;width:100%;min-height:3rem;margin-top:.25rem;border:2px solid #d9b9bd;border-radius:.75rem;background:#fff;padding:.5rem .75rem}
+.label{display:block;margin-top:.9rem;font-weight:800}
+.card{border:1px solid var(--color-blush);border-radius:1.25rem;background:#fff}
+.h-display{font-family:var(--font-display);font-weight:800;line-height:1.1;color:var(--color-wine-dark)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
