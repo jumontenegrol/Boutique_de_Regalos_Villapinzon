@@ -17,7 +17,7 @@ export default function Admin(){
  if(st!='ok')return <Gate st={st} check={check}/>
  const pend=orders.filter(o=>o.status=='pendiente').length
  return <div className="min-h-screen">
-  <div className="border-b border-blush bg-white"><div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3"><img src="/logo.png" alt="" className="size-12 rounded-full"/><h1 className="h-display text-2xl">Panel de administración</h1>
+  <div className="border-b border-blush bg-white"><div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3"><img src="/logo.jpeg" alt="" className="size-12 rounded-full"/><h1 className="h-display text-2xl">Panel de administración</h1>
    <Link to="/" className="btn btn-alt ml-auto"><Store size={18}/>Ver tienda</Link><button className="btn btn-alt" onClick={async()=>{await sb.auth.signOut();setSt('login')}}><LogOut size={18}/>Salir</button></div></div>
   <div className="mx-auto max-w-6xl px-5 py-5"><div className="flex flex-wrap gap-2">{[['orders',`Pedidos${pend?` (${pend} pendientes)`:''}`],['products','Productos y stock'],['stats','Estadísticas']].map(([k,v])=><button key={k} onClick={()=>setTab(k)} className={`min-h-11 cursor-pointer rounded-full border-2 border-wine px-5 font-bold ${tab==k?'bg-wine text-white':'bg-white text-wine'}`}>{v}</button>)}</div>
    <div className="mt-5">{tab=='orders'?<Orders orders={orders} refresh={refresh}/>:tab=='products'?<Products refresh={refresh}/>:<Stats orders={orders}/>}</div></div></div>}
@@ -25,7 +25,7 @@ export default function Admin(){
 function Gate({st,check}){
  const [f,setF]=useState({e:'',p:''}),[err,setErr]=useState('')
  const login=async e=>{e.preventDefault();const {error}=await sb.auth.signInWithPassword({email:f.e,password:f.p});error?setErr('Correo o contraseña incorrectos.'):check()}
- return <div className="grid min-h-screen place-items-center p-5"><div className="card w-full max-w-sm p-6"><img src="/logo.png" alt="" className="mx-auto size-20 rounded-full"/><h1 className="h-display mt-3 text-center text-2xl">Ingreso de administrador</h1>
+ return <div className="grid min-h-screen place-items-center p-5"><div className="card w-full max-w-sm p-6"><img src="/logo.jpeg" alt="" className="mx-auto size-20 rounded-full"/><h1 className="h-display mt-3 text-center text-2xl">Ingreso de administrador</h1>
   {st=='load'?<p className="mt-4 text-center">Cargando…</p>:st=='nosb'?<p className="mt-4">Falta configurar <b>VITE_SUPABASE_URL</b> y <b>VITE_SUPABASE_ANON_KEY</b> en el archivo .env.</p>
   :st=='deny'?<><p className="mt-4">Esta cuenta no tiene permisos de administrador.</p><button className="btn mt-4 w-full" onClick={async()=>{await sb.auth.signOut();check()}}>Salir</button></>
   :<form onSubmit={login}><label className="label">Correo<input className="input" type="email" autoComplete="username" value={f.e} onChange={e=>setF({...f,e:e.target.value})} required/></label><label className="label">Contraseña<input className="input" type="password" autoComplete="current-password" value={f.p} onChange={e=>setF({...f,p:e.target.value})} required/></label>{err&&<p role="alert" className="mt-3 font-bold text-red-700">{err}</p>}<button className="btn mt-5 w-full">Entrar</button></form>}

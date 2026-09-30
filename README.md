@@ -5,16 +5,3 @@
 4. Admin: `/admin` (enlace "Admin" en el encabezado y el pie de página).
 Edita dirección y enlace de Maps en `src/lib.jsx` (CFG) y el texto de "Quiénes somos" en `src/Store.jsx`.
 
-supabase: 
-password:
-Boutiquedenancy28
-
-admin:
-nancy@gmail.com
-nancy1234
-
-juanmon@gmail.com
-juan1234
-
-jairomon@gmail.com
-jairo1234

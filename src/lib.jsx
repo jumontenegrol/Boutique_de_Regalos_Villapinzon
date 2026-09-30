@@ -2,7 +2,7 @@ import {createContext,useCallback,useContext,useEffect,useState} from 'react'
 import {createClient} from '@supabase/supabase-js'
 const {VITE_SUPABASE_URL:U,VITE_SUPABASE_ANON_KEY:K}=import.meta.env
 export const sb=U&&K?createClient(U,K):null
-export const CFG={WA:'573005554942',PHONE:'+57 300 555 4942',IG:'https://www.instagram.com/regalosvillapinzon',ADDRESS:'Villapinzón, Cundinamarca (agrega aquí la dirección exacta)',MAPS:'https://www.google.com/maps/search/?api=1&query=Villapinz%C3%B3n+Cundinamarca'}
+export const CFG={WA:'573005554942',PHONE:'+57 300 555 4942',IG:'https://www.instagram.com/regalosvillapinzon?stkn=OWk0Z2I1dmZ0N3pn',ADDRESS:'Villapinzón, Cundinamarca (agrega aquí la dirección exacta)',MAPS:'https://maps.app.goo.gl/4aWwpWMmcpTr3EQY9'}
 export const fmt=n=>'$'+Number(n).toLocaleString('es-CO')
 export const wa=t=>`https://wa.me/${CFG.WA}${t?'?text='+encodeURIComponent(t):''}`
 export const ICON={agendas:'📓',termos:'🥤',joyas:'💍',cajas:'🎁',tazas:'☕',bolsos:'👜',peluches:'🧸',cafe:'🫘'}

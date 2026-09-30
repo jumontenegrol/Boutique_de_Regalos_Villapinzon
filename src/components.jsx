@@ -23,7 +23,7 @@ export function CartDrawer(){
   if(f.n.trim().length<2)return setErr('Escribe tu nombre.');if(ph.length!=10)return setErr('Escribe tu celular completo, de 10 dígitos.')
   setBusy(true);setErr('');let num='BR-DEMO'
   if(sb){const {data,error}=await sb.rpc('create_order',{p_name:f.n,p_phone:ph,p_personalization:f.t,p_items:rows.map(([p,q])=>({id:p.id,qty:q}))});if(error){setBusy(false);return setErr('No pudimos guardar tu pedido. Inténtalo de nuevo o escríbenos por WhatsApp.')}num=data}
-  const msg=`Hola 👋 Quiero confirmar mi pedido *${num}*\n\n${rows.map(([p,q])=>`• ${q} x ${p.name} — ${fmt(p.price*q)}`).join('\n')}\n\n*Total: ${fmt(tot)}*\nNombre: ${f.n}\nCelular: ${ph}${f.t.trim()?`\nPersonalización: ${f.t}`:''}`
+  const msg=`Hola Nancy Quiero confirmar mi pedido *${num}*\n\n${rows.map(([p,q])=>`• ${q} x ${p.name} — ${fmt(p.price*q)}`).join('\n')}\n\n*Total: ${fmt(tot)}*\nNombre: ${f.n}\nCelular: ${ph}${f.t.trim()?`\nPersonalización: ${f.t}`:''}`
   clear();setBusy(false);setDone({num,url:wa(msg)})}
  return <>{open&&<div className="fixed inset-0 z-40 bg-ink/50" onClick={close}/>}
  <aside aria-label="Carrito" className={`fixed right-0 top-0 z-50 h-full w-full max-w-md overflow-auto bg-white p-5 shadow-2xl transition-transform ${open?'':'invisible translate-x-full'}`}>
